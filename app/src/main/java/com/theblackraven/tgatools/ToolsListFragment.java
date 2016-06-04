@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.content.Intent;
 
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
@@ -84,8 +85,12 @@ public class ToolsListFragment extends Fragment{
         ToolsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String aktienInfo = (String) adapterView.getItemAtPosition(position);
-                Toast.makeText(getActivity(), aktienInfo, Toast.LENGTH_SHORT).show();
+                String toolSelected = (String) adapterView.getItemAtPosition(position);
+
+                // Intent erzeugen und Starten der AktiendetailActivity mit explizitem Intent
+                Intent ToolOpenIntent = new Intent(getActivity(), Tool1Activity.class);
+                ToolOpenIntent.putExtra(Intent.EXTRA_TEXT, toolSelected);
+                startActivity(ToolOpenIntent);
             }
         });
 

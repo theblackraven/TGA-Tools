@@ -17,6 +17,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".Tool1Activity"
+            android:label="@string/title_activity_tool1"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.theblackraven.tgatools.Tool1Activity" />
+        </activity>
+
+
     </application>
 
 </manifest>
