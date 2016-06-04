@@ -2,5 +2,7 @@
     <string name="app_name">TGA Tools</string>
     <string name="TGA_Tools">TGA Tools</string>
     <string name="action_settings">Settings</string>
+    <string name="action_daten_Platzhalter">Aktualisieren</string>
+
 
 </resources>
