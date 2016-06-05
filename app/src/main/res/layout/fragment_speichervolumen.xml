@@ -41,6 +41,27 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:text="Totvolumen in %"
+                android:id="@+id/textView8"
+                android:layout_column="0"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/Totvolumen_text"
+                android:layout_column="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
                 android:text="Spreizung in K"
                 android:id="@+id/textView2"
                 android:layout_column="0"

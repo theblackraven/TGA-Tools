@@ -13,15 +13,16 @@ import android.widget.TextView;
 
 public class SpeichervolumenFragment extends Fragment {
     public TextView Ergebnis_1; //TextView Ergebnis erstellen damit man aus dem Asynctask darauf zugreifen kann!
-    public TextView Ergebnis_2; //TextView Ergebnis erstellen damit man aus dem Asynctask darauf zugreifen kann!
+    public TextView Ergebnis_2;
     public EditText Leistung_text;
     public EditText Spreizung_text;
     public EditText Inhalt_text;
+    public EditText Totvolumen_text;
 
     private class Berechnen extends AsyncTask<Double, Double, Double[]> {
         protected Double[] doInBackground(Double... value) {
             Double[] value_1= new Double[2];
-            value_1[0] = value[1]*value[2]/1000*1.163;
+            value_1[0] = value[1]*value[2]/1000*1.163*(1-value[3]/100);
             value_1[1] = value_1[0]/value[0]*60;
             return value_1;
 
@@ -49,6 +50,7 @@ public class SpeichervolumenFragment extends Fragment {
         Inhalt_text = (EditText) rootView.findViewById(R.id.Speichervolumen_Text);
         Leistung_text = (EditText) rootView.findViewById(R.id.Leistung_1_text);
         Spreizung_text = (EditText) rootView.findViewById(R.id.Spreizung_1_text);
+        Totvolumen_text = (EditText) rootView.findViewById(R.id.Totvolumen_text);
 
 
 
@@ -56,13 +58,13 @@ public class SpeichervolumenFragment extends Fragment {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                double[] value_double = new double[3];
+                double[] value_double = new double[4];
                 value_double[0]= Double.parseDouble(Leistung_text.getText().toString());
                 value_double[1]= Double.parseDouble(Spreizung_text.getText().toString());
                 value_double[2]= Double.parseDouble(Inhalt_text.getText().toString());
+                value_double[3]= Double.parseDouble(Totvolumen_text.getText().toString());
 
-
-                new Berechnen().execute(value_double[0],value_double[1],value_double[2]);
+                new Berechnen().execute(value_double[0],value_double[1],value_double[2],value_double[3]);
 
             }
         });
