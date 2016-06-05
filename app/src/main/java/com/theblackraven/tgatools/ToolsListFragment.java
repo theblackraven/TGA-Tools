@@ -64,8 +64,9 @@ public class ToolsListFragment extends Fragment{
         Log.e(LOG_TAG, "error       - Meldung");
 
         String [] ToolsListeArray = {
-                "Wärmeleistung",
-                "Druckverluste"
+                "Volumenstrom",
+                "Speicherinhalt",
+                "Ventil"
 
         }; //array mit Daten
 
@@ -88,7 +89,7 @@ public class ToolsListFragment extends Fragment{
                 String toolSelected = (String) adapterView.getItemAtPosition(position);
 
                 // Intent erzeugen und Starten der AktiendetailActivity mit explizitem Intent
-                Intent ToolOpenIntent = new Intent(getActivity(), Tool1Activity.class);
+                Intent ToolOpenIntent = new Intent(getActivity(), ToolsActivity.class);
                 ToolOpenIntent.putExtra(Intent.EXTRA_TEXT, toolSelected);
                 startActivity(ToolOpenIntent);
             }

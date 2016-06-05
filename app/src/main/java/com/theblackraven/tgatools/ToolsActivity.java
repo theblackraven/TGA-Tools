@@ -6,19 +6,30 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
-
-public class Tool1Activity extends ActionBarActivity {
+public class ToolsActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tool1);
         Intent empfangenerIntent = this.getIntent();
         if (empfangenerIntent != null && empfangenerIntent.hasExtra(Intent.EXTRA_TEXT)) {
             String toolInfo = empfangenerIntent.getStringExtra(Intent.EXTRA_TEXT);
-            setTitle(toolInfo);}
+            setTitle(toolInfo);
+            if(toolInfo.equals("Speicherinhalt")) {
+                setContentView(R.layout.activity_speichervolumen);
+            }
+            if(toolInfo.equals("Ventil")) {
+                setContentView(R.layout.activity_ventil);
+            }
+
+            if(toolInfo.equals("Volumenstrom")) {
+                setContentView(R.layout.activity_volumenstrom);
+            }
+
+        }
 
     }
 
