@@ -6,5 +6,8 @@
     <string name="hello_world">Hallo Welt</string>
     <string name="title_activity_tool1">Tool1</string>
 
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="str_btn_chart">Income vs Expense Line Chart</string>
 
 </resources>

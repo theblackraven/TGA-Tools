@@ -129,18 +129,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="gl Wert"
-                android:id="@+id/textView10"
+                android:text="sv"
+                android:id="@+id/sv"
                 android:layout_column="0"
                 android:textSize="18sp" />
 
             <EditText
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/editText2"
+                android:id="@+id/sv_text"
                 android:layout_column="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="25" />
 
         </TableRow>
 
@@ -234,5 +235,22 @@
             android:layout_height="match_parent">
 
         </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="Kennlinie"
+                android:id="@+id/Kennlinie_Ventil"
+                android:layout_column="0" />
+        </TableRow>
+
+        <LinearLayout android:id="@+id/chart" android:orientation="horizontal"
+            android:layout_width="fill_parent" android:layout_height="0dip" android:layout_weight="1"/>
+
+
     </TableLayout>
 </RelativeLayout>
