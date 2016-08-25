@@ -28,6 +28,9 @@ public class ToolsActivity extends ActionBarActivity {
             if(toolInfo.equals("Volumenstrom")) {
                 setContentView(R.layout.activity_volumenstrom);
             }
+            if(toolInfo.equals("Rohrtabellen")) {
+                setContentView(R.layout.activity_rohrtabellen);
+            }
 
         }
 

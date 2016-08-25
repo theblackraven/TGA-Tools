@@ -66,7 +66,9 @@ public class ToolsListFragment extends Fragment{
         String [] ToolsListeArray = {
                 "Volumenstrom",
                 "Speicherinhalt",
-                "Ventil"
+                "Ventil",
+                "Rohrtabellen",
+                "Test"
 
         }; //array mit Daten
 

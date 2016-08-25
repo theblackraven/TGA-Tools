@@ -2,15 +2,31 @@ package com.theblackraven.tgatools;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+
 public class MainActivity extends ActionBarActivity {
+    private dbDataSource dbData;
+
+    public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Data testData = new Data(100, 98, 0.111);
+        Log.d(LOG_TAG, "Inhalt der Testmemo: " + testData.toString());
+
+        dbData = new dbDataSource(this);
+
+        Log.d(LOG_TAG, "Die Datenquelle wird geöffnet.");
+        dbData.open();
+
+        Log.d(LOG_TAG, "Die Datenquelle wird geschlossen.");
+        dbData.close();
     }
 
 

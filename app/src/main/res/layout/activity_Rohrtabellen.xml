@@ -2,8 +2,8 @@
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_ventil"
-    android:name="com.theblackraven.tgatools.VentilFragment"
-    tools:layout="@layout/fragment_ventil"
+    android:id="@+id/activity_Rohrtabellen"
+    android:name="com.theblackraven.tgatools.RohrtabellenFragment"
+    tools:layout="@layout/fragment_rohrtabellen"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
