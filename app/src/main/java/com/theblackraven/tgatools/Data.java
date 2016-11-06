@@ -21,33 +21,6 @@ public class Data {
         this.k = k;
     }
 
-
-    public double getda() {
-        return da;
-    }
-
-    public void setda(double da) {
-        this.da = da;
-    }
-
-
-    public double getdi() {
-        return di;
-    }
-
-    public void setdi(double di) {
-        this.di = di;
-    }
-
-    public double getk() {
-        return k;
-    }
-
-    public void setk(double k) {
-        this.k = k;
-    }
-
-
     public long getId() {
         return id;
     }
@@ -57,9 +30,19 @@ public class Data {
     }
 
 
+
+
+
+
     @Override
     public String toString() {
         String output = idx + ";" + name + ";" + da + ";" + di + ";" + k + ";";
+
+        return output;
+    }
+
+    public String toStringNames() {
+        String output = "Einträge" + name;
 
         return output;
     }

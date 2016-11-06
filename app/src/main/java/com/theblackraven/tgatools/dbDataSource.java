@@ -26,6 +26,12 @@ public class dbDataSource {
             dbHelper.COLUMN_K
     };
 
+    private String[] names = {
+            dbHelper.COLUMN_NAME
+    };
+
+
+
 
 
     public dbDataSource(Context context) {
@@ -83,6 +89,15 @@ public class dbDataSource {
         return data;
     }
 
+    private String cursorToNames(Cursor cursor) {
+
+        int IdName = cursor.getColumnIndex(dbHelper.COLUMN_NAME);
+        String name = cursor.getString(IdName);
+        return name;
+    }
+
+
+
     public List<Data> getAllData() {
         List<Data> DataList = new ArrayList<>();
 
@@ -103,5 +118,27 @@ public class dbDataSource {
 
         return DataList;
     }
+
+    public List<String> getAllNames() {
+        List<String> DataList = new ArrayList<>();
+
+        Cursor cursor = database.query(dbHelper.TABLE_STAHL,
+                names, null, null, null, null, null);
+
+        cursor.moveToFirst();
+        String name;
+
+        while(!cursor.isAfterLast()) {
+            name = cursorToNames(cursor);
+            DataList.add(name);
+            Log.d(LOG_TAG, name);
+            cursor.moveToNext();
+        }
+
+        cursor.close();
+
+        return DataList;
+    }
+
 
 }
