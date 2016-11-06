@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    private dbDataSource dbData;
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
@@ -17,18 +19,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Data testData = new Data(100, 98, 0.111);
-        Log.d(LOG_TAG, "Inhalt der Testmemo: " + testData.toString());
 
-        dbData = new dbDataSource(this);
 
-        Log.d(LOG_TAG, "Die Datenquelle wird geöffnet.");
-        dbData.open();
-
-        Log.d(LOG_TAG, "Die Datenquelle wird geschlossen.");
-        dbData.close();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,4 +44,7 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

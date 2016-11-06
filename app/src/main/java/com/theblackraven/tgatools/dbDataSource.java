@@ -6,6 +6,10 @@ package com.theblackraven.tgatools;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.content.ContentValues;
+import android.database.Cursor;
+import java.util.ArrayList;
+import java.util.List;
 
 public class dbDataSource {
 
@@ -13,6 +17,15 @@ public class dbDataSource {
 
     private SQLiteDatabase database;
     private dbHelper dbHelper;
+
+    private String[] columns = {
+            dbHelper.COLUMN_ID,
+            dbHelper.COLUMN_NAME,
+            dbHelper.COLUMN_DURCHMESSER_A,
+            dbHelper.COLUMN_DURCHMESSER_I,
+            dbHelper.COLUMN_K
+    };
+
 
 
     public dbDataSource(Context context) {
@@ -30,4 +43,64 @@ public class dbDataSource {
         dbHelper.close();
         Log.d(LOG_TAG, "Datenbank mit Hilfe des DbHelpers geschlossen.");
     }
+    public Data createData(String name, double da, double di, double k) {
+        ContentValues values = new ContentValues();
+        values.put(dbHelper.COLUMN_DURCHMESSER_A, da);
+        values.put(dbHelper.COLUMN_DURCHMESSER_I, di);
+        values.put(dbHelper.COLUMN_K, k);
+        values.put(dbHelper.COLUMN_NAME, name);
+
+        long insertId = database.insert(dbHelper.TABLE_STAHL, null, values);
+
+        Cursor cursor = database.query(dbHelper.TABLE_STAHL,
+                columns, dbHelper.COLUMN_ID + "=" + insertId,
+                null, null, null, null);
+
+        cursor.moveToFirst();
+        Data data = cursorToData(cursor);
+        cursor.close();
+
+        return data;
+    }
+
+    private Data cursorToData(Cursor cursor) {
+        int IdIndex = cursor.getColumnIndex(dbHelper.COLUMN_ID);
+        int IdName = cursor.getColumnIndex(dbHelper.COLUMN_NAME);
+        int IdDa = cursor.getColumnIndex(dbHelper.COLUMN_DURCHMESSER_A);
+        int IdDi = cursor.getColumnIndex(dbHelper.COLUMN_DURCHMESSER_I);
+        int IdK = cursor.getColumnIndex(dbHelper.COLUMN_K);
+
+        String name = cursor.getString(IdName);
+        double da = cursor.getInt(IdDa);
+        double di = cursor.getInt(IdDi);
+        double k = cursor.getInt(IdK);
+
+
+
+        Data data = new Data(name, da, di, k);
+
+        return data;
+    }
+
+    public List<Data> getAllData() {
+        List<Data> DataList = new ArrayList<>();
+
+        Cursor cursor = database.query(dbHelper.TABLE_STAHL,
+                columns, null, null, null, null, null);
+
+        cursor.moveToFirst();
+        Data data;
+
+        while(!cursor.isAfterLast()) {
+            data = cursorToData(cursor);
+            DataList.add(data);
+            Log.d(LOG_TAG, "ID: " + data.getId() + ", Inhalt: " + data.toString());
+            cursor.moveToNext();
+        }
+
+        cursor.close();
+
+        return DataList;
+    }
+
 }

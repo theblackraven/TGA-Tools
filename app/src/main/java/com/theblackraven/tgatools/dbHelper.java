@@ -15,19 +15,22 @@ public class dbHelper extends SQLiteOpenHelper{
     public static final String DB_NAME = "rohrtabelle.db";
     public static final int DB_VERSION = 1;
 
-    public static final String TABLE_SHOPPING_LIST = "Stahl";
+    public static final String TABLE_STAHL = "Stahl";
 
     public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_NAME = "Bezeichnung";
     public static final String COLUMN_DURCHMESSER_A = "Aussendurchmesser";
     public static final String COLUMN_DURCHMESSER_I = "Innendurchmesser";
     public static final String COLUMN_K = "Rohrrauhigkeit";
 
+
     public static final String SQL_CREATE =
-            "CREATE TABLE " + TABLE_SHOPPING_LIST +
+            "CREATE TABLE " + TABLE_STAHL +
                     "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_DURCHMESSER_A + " INTEGER NOT NULL, " +
-                    COLUMN_DURCHMESSER_I + " INTEGER NOT NULL, " +
-                    COLUMN_K + " INTEGER NOT NULL);";
+                    COLUMN_NAME + " STRING NOT NULL, " +
+                    COLUMN_DURCHMESSER_A + " REAL NOT NULL, " +
+                    COLUMN_DURCHMESSER_I + " REAL NOT NULL, " +
+                    COLUMN_K + " REAL NOT NULL);";
 
 
     public dbHelper(Context context) {

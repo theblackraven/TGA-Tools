@@ -5,34 +5,36 @@ package com.theblackraven.tgatools;
  */
 public class Data {
 
-    private double ra;
-    private double ri;
+    private String name;
+    private double da;
+    private double di;
     private double k;
     private long id;
 
 
-    public Data(double ra, double ri, double k) {
-        this.ra = ra;
-        this.ri = ri;
+    public Data(String name, double da, double di, double k) {
+        this.name =name;
+        this.da = da;
+        this.di = di;
         this.k = k;
     }
 
 
-    public double getra() {
-        return ra;
+    public double getda() {
+        return da;
     }
 
-    public void setra(double ra) {
-        this.ra = ra;
+    public void setda(double da) {
+        this.da = da;
     }
 
 
-    public double getri() {
-        return ri;
+    public double getdi() {
+        return di;
     }
 
-    public void setri(double ri) {
-        this.ri = ri;
+    public void setdi(double di) {
+        this.di = di;
     }
 
     public double getk() {
@@ -55,7 +57,7 @@ public class Data {
 
     @Override
     public String toString() {
-        String output = id + ";" + ra + ";" + ri + ";" + k + ";";
+        String output = id + ";" + name + ";" + da + ";" + di + ";" + k + ";";
 
         return output;
     }

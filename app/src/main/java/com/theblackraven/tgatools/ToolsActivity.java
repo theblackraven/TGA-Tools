@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class ToolsActivity extends ActionBarActivity {
 
+    private dbDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

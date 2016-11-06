@@ -67,8 +67,7 @@ public class ToolsListFragment extends Fragment{
                 "Volumenstrom",
                 "Speicherinhalt",
                 "Ventil",
-                "Rohrtabellen",
-                "Test"
+                "Rohrtabellen"
 
         }; //array mit Daten
 
