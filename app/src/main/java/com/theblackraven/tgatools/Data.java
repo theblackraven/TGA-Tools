@@ -5,6 +5,7 @@ package com.theblackraven.tgatools;
  */
 public class Data {
 
+    private int idx;
     private String name;
     private double da;
     private double di;
@@ -12,7 +13,8 @@ public class Data {
     private long id;
 
 
-    public Data(String name, double da, double di, double k) {
+    public Data(int idx, String name, double da, double di, double k) {
+        this.idx = idx;
         this.name =name;
         this.da = da;
         this.di = di;
@@ -57,7 +59,7 @@ public class Data {
 
     @Override
     public String toString() {
-        String output = id + ";" + name + ";" + da + ";" + di + ";" + k + ";";
+        String output = idx + ";" + name + ";" + da + ";" + di + ";" + k + ";";
 
         return output;
     }

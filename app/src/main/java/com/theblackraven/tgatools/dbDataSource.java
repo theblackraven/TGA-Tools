@@ -70,6 +70,7 @@ public class dbDataSource {
         int IdDi = cursor.getColumnIndex(dbHelper.COLUMN_DURCHMESSER_I);
         int IdK = cursor.getColumnIndex(dbHelper.COLUMN_K);
 
+        int idx = cursor.getInt(IdIndex);
         String name = cursor.getString(IdName);
         double da = cursor.getInt(IdDa);
         double di = cursor.getInt(IdDi);
@@ -77,7 +78,7 @@ public class dbDataSource {
 
 
 
-        Data data = new Data(name, da, di, k);
+        Data data = new Data(idx, name, da, di, k);
 
         return data;
     }
